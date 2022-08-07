@@ -23,4 +23,10 @@ class AppointmentTBLCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setUpData(data: AppointmentData){
+        self.nameLBL.text = data.name
+        self.timeLBL.text = data.time
+        self.imgView.imageFromServerURL(data.imageURL ?? "", placeHolder: UIImage(named: "placehoderIMG"))
+    }
+    
 }

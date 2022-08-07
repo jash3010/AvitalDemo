@@ -17,21 +17,18 @@ class HomeVC: UIViewController {
         return self.view as! HomeView
     }()
     
+    lazy var mainViewModel: HomeVM = {
+        return HomeVM(self)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.mainView.setUpUI(vc: self)
+        Task{
+            await self.mainViewModel.getAppointmentData()
+            self.mainView.appointmentTBL.reloadData()
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

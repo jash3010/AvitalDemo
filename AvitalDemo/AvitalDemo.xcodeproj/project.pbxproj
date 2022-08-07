@@ -19,6 +19,8 @@
 		04BCCE2A289F800A000B29CD /* HomeVCTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE29289F800A000B29CD /* HomeVCTableDelegate.swift */; };
 		04BCCE2E289F82BE000B29CD /* AppointmentTBLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE2C289F82BE000B29CD /* AppointmentTBLCell.swift */; };
 		04BCCE2F289F82BE000B29CD /* AppointmentTBLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BCCE2D289F82BE000B29CD /* AppointmentTBLCell.xib */; };
+		04BCCE31289F87AB000B29CD /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE30289F87AB000B29CD /* AppointmentModel.swift */; };
+		04BCCE35289F89F8000B29CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCCE34289F89F8000B29CD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		04BCCE29289F800A000B29CD /* HomeVCTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCTableDelegate.swift; sourceTree = "<group>"; };
 		04BCCE2C289F82BE000B29CD /* AppointmentTBLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTBLCell.swift; sourceTree = "<group>"; };
 		04BCCE2D289F82BE000B29CD /* AppointmentTBLCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentTBLCell.xib; sourceTree = "<group>"; };
+		04BCCE30289F87AB000B29CD /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
+		04BCCE34289F89F8000B29CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				04BCCE05289F7E6F000B29CD /* AppDelegate.swift */,
 				04BCCE07289F7E6F000B29CD /* SceneDelegate.swift */,
 				04BCCE1C289F7F41000B29CD /* ViewControllers */,
+				04BCCE33289F89CE000B29CD /* Helper */,
 				04BCCE0B289F7E6F000B29CD /* Main.storyboard */,
 				04BCCE11289F7E73000B29CD /* Assets.xcassets */,
 				04BCCE13289F7E73000B29CD /* LaunchScreen.storyboard */,
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				04BCCE27289F7FEA000B29CD /* HomeVM.swift */,
+				04BCCE30289F87AB000B29CD /* AppointmentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +138,14 @@
 				04BCCE2D289F82BE000B29CD /* AppointmentTBLCell.xib */,
 			);
 			path = HomeTBLCell;
+			sourceTree = "<group>";
+		};
+		04BCCE33289F89CE000B29CD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				04BCCE34289F89F8000B29CD /* Constants.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,10 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BCCE31289F87AB000B29CD /* AppointmentModel.swift in Sources */,
 				04BCCE2A289F800A000B29CD /* HomeVCTableDelegate.swift in Sources */,
 				04BCCE10289F7E6F000B29CD /* AvitalDemo.xcdatamodeld in Sources */,
 				04BCCE28289F7FEA000B29CD /* HomeVM.swift in Sources */,
 				04BCCE06289F7E6F000B29CD /* AppDelegate.swift in Sources */,
+				04BCCE35289F89F8000B29CD /* Constants.swift in Sources */,
 				04BCCE2E289F82BE000B29CD /* AppointmentTBLCell.swift in Sources */,
 				04BCCE24289F7FC4000B29CD /* HomeVC.swift in Sources */,
 				04BCCE22289F7FAF000B29CD /* HomeView.swift in Sources */,
