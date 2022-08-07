@@ -18,7 +18,7 @@ class HomeVC: UIViewController {
     }()
     
     lazy var mainViewModel: HomeVM = {
-        return HomeVM(self)
+        return HomeVM(self, UIApplication.shared.delegate as! AppDelegate)
     }()
     
     override func viewDidLoad() {

@@ -10,12 +10,12 @@ import Foundation
 // MARK: - AppointmentModel
 struct AppointmentModel: Codable {
     let message: String?
-    let data: [AppointmentData]?
+    let data: [AppointmentList]?
     let success: Bool?
 }
 
-// MARK: - AppointmentData
-struct AppointmentData: Codable {
+// MARK: - AppointmentList
+struct AppointmentList: Codable {
     let id: String?
     let imageURL: String?
     let name, time: String?
