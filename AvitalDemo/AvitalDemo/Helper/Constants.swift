@@ -9,29 +9,44 @@ import Foundation
 import UIKit
 import EventKit
 
-func serverToLocal(date:String) -> String {
+func serverToLocal(date:String) -> (String, Date, Date) {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-    guard let dateUTC = dateFormatter.date(from: date) else { return "" }
+    guard let dateUTC = dateFormatter.date(from: date) else { return ("", Date(), Date()) }
     dateFormatter.timeZone = TimeZone.current
-    dateFormatter.dateFormat = "dd MMM"
-    let dayMonthStr = dateFormatter.string(from: dateUTC)
-    dateFormatter.dateFormat = "hh:mm a"
-    let startTime = dateFormatter.string(from: dateUTC)
-    let endTime = dateFormatter.string(from: getEndTime(date: dateUTC))
     
-    return "\(dayMonthStr), \(startTime) - \(endTime)"
+    
+//    func dateForEvents(date: String) -> (Date, Date) {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+//        guard let dateUTC = dateFormatter.date(from: date) else { return (Date(), Date()) }
+//        dateFormatter.timeZone = TimeZone.current
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+            let currentDateForEvent = dateFormatter.date(from: "\(dateUTC)")
+            let endDateForEvent = Calendar.current.date(byAdding: .minute, value: 15, to: currentDateForEvent!)
+        
+//    }
+    
+    
+    dateFormatter.dateFormat = "dd MMM"
+    let dayMonthStr = dateFormatter.string(from: currentDateForEvent!)
+    dateFormatter.dateFormat = "hh:mm a"
+    let startTime = dateFormatter.string(from: currentDateForEvent!)
+    let endTime = dateFormatter.string(from: endDateForEvent!)
+    
+    return ("\(dayMonthStr), \(startTime) - \(endTime)", currentDateForEvent!, endDateForEvent!)
 }
 
-func getEndTime(date: Date) -> Date{
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
-    dateFormatter.timeZone = TimeZone.current
-    let currentDate = dateFormatter.date(from: "\(date)")
-    let date = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate!)
-    return date!
-}
+//func getEndTime(date: Date) -> Date{
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+//    dateFormatter.timeZone = TimeZone.current
+//    let currentDate = dateFormatter.date(from: "\(date)")
+//    let date = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate!)
+//    return date!
+//}
 
 func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date) {
     let eventStore = EKEventStore()

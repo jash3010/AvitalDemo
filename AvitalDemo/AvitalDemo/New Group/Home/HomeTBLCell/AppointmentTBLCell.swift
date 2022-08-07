@@ -25,8 +25,11 @@ class AppointmentTBLCell: UITableViewCell {
     
     func setUpData(data: AppointmentList){
         self.nameLBL.text = data.name
-        self.timeLBL.text = serverToLocal(date: data.time ?? "")
-        addEventToCalendar(title: data.name!, description: self.timeLBL.text, startDate: getEndTime(date: Date()), endDate: getEndTime(date: Date()))
+        let (datetimeStr, startDate, endDate) = serverToLocal(date: data.time ?? "")
+        self.timeLBL.text = datetimeStr
+        addEventToCalendar(title: data.name!, description: self.timeLBL.text, startDate: startDate, endDate: endDate)
         self.imgView.imageFromServerURL(data.imageURL ?? "", placeHolder: UIImage(named: "placehoderIMG"))
     }
+    
+    
 }
